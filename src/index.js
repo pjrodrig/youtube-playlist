@@ -8,17 +8,20 @@ const port = 3030
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(cors())
+app.use(cors());
 
 app.get('/playlists', (req, res) => {
-    res.send(JSON.parse(fs.readFileSync('../data/playlists.json')))
-})
+    let playlist = JSON.parse(fs.readFileSync('../data/playlists.json'))['playlist'];
+    console.log(playlist);
+    res.send(playlist);
+});
 
 app.post('/playlists', (req, res) => {
-    console.log(req.body);
-    res.send("done");
-})
+    let playlist = req.body;
+    fs.writeFileSync('../data/playlists.json', JSON.stringify({playlist: playlist}));
+    res.send(playlist);
+});
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+    console.log(`Listening at http://localhost:${port}`);
+});
