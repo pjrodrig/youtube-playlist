@@ -11,7 +11,7 @@ import {
     faTrash
 } from '@fortawesome/free-solid-svg-icons'
 
-class Playlist extends React.Component {
+class PlaylistList extends React.Component {
 
     render() {
         if(this.props.playlist !== undefined) {
@@ -43,4 +43,4 @@ class Playlist extends React.Component {
     }
 }
 
-export default Playlist;
+export default PlaylistList;

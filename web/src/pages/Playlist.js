@@ -6,15 +6,11 @@ import {
 } from "react-bootstrap";
 
 //Components
-import AddVideo from './components/AddVideo';
-import Player from './components/Player';
-import Playlist from './components/Playlist';
+import AddVideo from '../components/AddVideo';
+import Player from '../components/Player';
+import PlaylistList from '../components/PlaylistList';
 
-//CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-
-class App extends React.Component {
+class Playlist extends React.Component {
 
     constructor(props) {
         super(props);
@@ -67,16 +63,16 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="Playlist">
                 <Container>
                     <Row>
                         <Col xl={8}>
                             <Player video={this.state.video} nextVideo={this.nextVideo}/>
                         </Col>
                         <Col xl={4}>
-                            <Playlist playlist={this.state.playlist}/>
+                            <PlaylistList playlist={this.state.playlist}/>
                             <AddVideo submit={this.addVideo}/>
-                        </Col>
+                        </Col> 
                     </Row>
                 </Container>
             </div>
@@ -85,4 +81,4 @@ class App extends React.Component {
     
 }
 
-export default App;
+export default Playlist;
